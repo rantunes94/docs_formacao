@@ -1,0 +1,69 @@
+To create a project:
+
+	npx create-react-app nomeee
+
+To create an optimized production build
+
+	npm run build
+
+To run the app from the console:
+	na pasta do proj :
+
+	code .
+
+To start the project on the web:
+	
+	npm start
+------------------------------------------------
+
+Modules to maintain structure :
+ 
+
+On src :  create a main-page
+	app.css  rename to-> main-page.css
+	app.js -> index.js
+	logo.svg
+
+in index.js of the root check if import app is ./main-page
+
+on main-page index.js 
+
+	import './App.css'; to -> main-page.css
+
+
+-----------------------------------------
+To use bootstrap 
+
+on VS Code , start writing b4- ...
+
+also use boostrap documentation 
+
+----------------------------------
+
+Calling a react component by default - > rcc...
+
+-----------------------------------------
+
+Types of Components
+
+Functions(lightweight component) Vs Classes(components that support state and lifecyle methods )
+
+Function example : const Header = () => (
+	<header></header>
+);
+export default Header
+
+
+Class example:
+class App extends Component { 
+	render(){
+	return(
+		<div>
+			<Header /> 
+		</div>
+	);
+	}
+}
+export default App;
+-----------------------------------------------------
+

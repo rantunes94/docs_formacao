@@ -1,0 +1,913 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs40\lang9 Arrays \par
+\b0\fs24 let values = [0,1,2];\par
+\par
+values.\b push\b0 (3); // adiciona ao array no proximo index livre\par
+values.push(4);\par
+values.push(5);\par
+\par
+values.\b pop\b0 (); // remove o ultimo elemento\par
+\par
+console.log(values[5]);\par
+\par
+\b push\b0  = adiciona ao array no proximo index livre\par
+\b pop \b0 =  remove o ultimo elemento\par
+\b shift , \b0 remove o primeiro elemento do index e reorganiza o meu array \par
+\b splice(nrIndex)  \b0 = remove o index indicado \par
+\b length = \b0 mostra o tamanho do array\par
+\tab // exemplos =  values.splice(3) removia o index 3\par
+ \tab\tab\tab\tab  ou  \par
+\tab\tab\tab values.splice(0,3) removia o index 0 ao 3\par
+// exemplo 2\par
+let values = [22,44,55,66];\par
+values.splice(0,3,11,22,33); \par
+console.log( values);\par
+\par
+apos remover os index 0 ate ao 3 sobra-me apenas o 66 , se eu fizer 11,22,33 no splice ele vai adiciona-los nos index's  que removi anteriormente\par
+-------------------------------------------------------------------------------------------------------------------\par
+\b\fs36 Condi\'e7\'f5es \par
+IF\par
+\b0\fs24 Diferen\'e7as entre  ==  e ===\par
+=== compara primeiro o tipo da vari\'e1vel e depois o seu valor\par
+== so compara o valor\par
+!==  significa not \par
+\b\fs36\par
+\fs28 Exemplos\fs36\par
+\b0\fs24 if ('5' == 5)\{\par
+  console.log('Yes');\par
+\}else\{\par
+  console.log('No');\par
+\} \par
+o resultado seria yes \par
+\par
+\par
+if ('5' === 5)\{\par
+  console.log('Yes');\par
+\}else\{\par
+  console.log('No');\par
+\} \par
+o resultado seria no\par
+-----------------------------------------\par
+Para o caso do !==\par
+\par
+let state = 'FL';\par
+let taxPercent = 0;\par
+if(state !== 'FL')\{\par
+  taxPercent = 5 ;\par
+\}\par
+\par
+console.log(taxPercent);\par
+\par
+o resultado seria 0\par
+\par
+---------------------\par
+Ultimo exercicio:\par
+\par
+let score = 100;\par
+\par
+if (score > 1000) \{\par
+  score = score +100 ;\par
+  \par
+\}else if(score === 1000)\{\par
+  console.log("No Bonus");\par
+\}\par
+\par
+else\{\par
+  console.log("Nice try!");\par
+\}\par
+\par
+console.log ("Score is : ", score);\par
+\par
+O resultado seria Nice try! porque o valor \'e9 100 visto nao ter entrado em nenhuma das condi\'e7\'f5es anteriores\par
+\par
+\b\fs36 CASE\par
+\b0\fs24 let state = 'TX';\par
+\par
+switch (state)\{\par
+  \par
+  case 'NY':\par
+    console.log('New York');\par
+    break;\par
+    \par
+  case 'Fl':\par
+     console.log('Florida');\par
+    break;\par
+    \par
+  default:\par
+    console.log('Unknown');\par
+    break;\par
+\}\par
+\par
+\b\fs36 LOOPS\par
+\b0\fs24 let suits = ['Hearts','Clubs','Diamonds','Spades'];\par
+let deck = [];\par
+let values = [\par
+'Ace','King','Queen',\par
+'Jack','Ten','Nine',\par
+'Eight','Seven','Six',\par
+'Five','Four','Three',\par
+'Two'\par
+];\par
+\b\fs36\par
+\b0\fs24 for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) \{\par
+  for(let valueIdx = 0; valueIdx< values.length;valueIdx++)\{\par
+    deck.push(values[valueIdx] + ' of ' + suits[suitIdx])\par
+  \}\par
+\}\par
+\par
+por cada tipo de carta vai adicionar  ao array Deck um tipo de carta + o valor correspondente\par
+\par
+exemplo: Ace of spades\par
+sendo que ace \'e9 o suit(tipo) e spades o valor\par
+\par
+-------------------------------------------------------------------------------------------------------------------\par
+\b\fs36 Func\'f5es\par
+\b0\fs24 function showMessage(message , favNumber) \{\par
+  message = message + " World!";\par
+  console.log(message , favNumber);\par
+\}\par
+\par
+function calc(x,y)\{\par
+  console.log(x + y)\par
+\}\par
+\par
+function tripleValue(value)\{\par
+  let newValue = value * 3 ;\par
+  return newValue;\par
+\}\par
+\par
+showMessage('Hello', 42);\par
+calc(5,3);\par
+console.log(tripleValue(5));\b\fs36\par
+\b0\fs24 -------------------------------------------------------------------------------------------------------------------\par
+\b\fs36 Objetos\par
+\b0\fs24 let person = \{\par
+  name : 'Ruben',\par
+  age : 99,\par
+  partTime : false\par
+\};\par
+\par
+para aceder a um destes atributos bastava fazer ->\par
+exemplo:\par
+\tab person.name\par
+\par
+\b Array of objects\par
+\par
+\b0 let cards = [\par
+  \{\par
+  suit : 'Hearts',\par
+  value : 'Queen'\par
+  \},\par
+  \par
+  \{\par
+    suit: 'Clubs',\par
+    value: 'King'\par
+  \}\par
+];\par
+\par
+console.log(cards[1].suit);\par
+\par
+\b Built in Objects\par
+\b0 let result = Math.random() * 52;\par
+result = Math.trunc(result);\par
+\par
+\b math.random \b0 provavelmente ir\'e1 devolver um n\'famero com casas decimais , para elimnar isso simplesmente uso o trunc \par
+\par
+\b short date time \b0 :  \par
+new Date().toDateString();\par
+\par
+\b upperCase\b0 :\par
+let result = 'Hello World';\par
+result = result.toUpperCase();\par
+-------------------------------------------------------------------------------------------------------------------\par
+\b\fs36 Web Pages\par
+\b0\fs24 <!DOCTYPE html>\par
+<html>\par
+\par
+  <head>\par
+    <link rel="stylesheet" href="style.css">\par
+    \par
+  </head>\par
+\par
+  <body>\par
+    <h1 id ='Tittle'>Hello Plunker!</h1>\par
+    <p id='text-area'>Teste</p>\par
+    <button id='ok-button'>Click me!</button>\par
+    \par
+    <script src="script.js"></script>\par
+  </body>\par
+\par
+</html>\par
+\par
+\par
+----------------------------\par
+\b Javascript \par
+\par
+\b0 let textArea = document.getElementById('text-area');\par
+\par
+textArea.innerText = 'Hello World';\par
+\par
+let okButton = document.getElementById('ok-button');\par
+okButton.addEventListener('click',function()\{\par
+  textArea.innerText = 'Button clicked!'\par
+\});\par
+\par
+\par
+-------------------------------------------------------------------------------------------------------------------\par
+\b\fs36 Black Jack Game\b0\fs24\par
+let suits = ['Hearts','Clubs','Diamonds','Spades'];\par
+\par
+let values = [\par
+'Ace','King','Queen',\par
+'Jack','Ten','Nine',\par
+'Eight','Seven','Six',\par
+'Five','Four','Three',\par
+'Two'\par
+];\par
+\par
+let deck =[];\par
+\par
+for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) \{\par
+  for(let valueIdx = 0; valueIdx< values.length;valueIdx++)\{\par
+    deck.push(values[valueIdx] + ' of ' + suits[suitIdx])\par
+  \}\par
+\}\par
+\par
+for (let i = 0; i < deck.length; i++) \{\par
+  console.log(deck[i]);\par
+\}\par
+  \par
+let playerCards = [\par
+  deck[0],\par
+  deck[2]\par
+  ];\par
+\par
+\par
+let card1 = "Ace of spades",\par
+    card2 = "Ten of Hearts";\par
+    \par
+console.log("Welcome to Blackjack!");\par
+    \par
+console.log("You are dealt: ");\par
+console.log("  " + playerCards[0]);\par
+console.log("  " + playerCards[1]);\par
+-------------------------------------------------------------------------------------------------------------------\par
+\par
+// Rest Parameters\par
+function sendCars(day, ...carIds)\{\par
+    carIds.forEach(id => console.log(id) );\par
+\}\par
+\par
+sendCars('Monday',1,2,3);\par
+// -------------------------------------------\par
+\par
+// Destructure Arrays exemplo 1\par
+let roupaIds = [1,2,5];\par
+\par
+let roupa1,remainingRoupas;\par
+\par
+[, ...remainingRoupas] = roupaIds;\par
+\par
+console.log(roupa1,remainingRoupas);\par
+\par
+// Destructure Arrays exemplo 2  ( exemplos 2 e 3 s\'e3o mt semelhantes)\par
+let casacoIds = [100,200,500,600,700];\par
+\par
+let [casaco1,casaco2, ...theRest] = casacoIds;\par
+\par
+console.log(casaco1,casaco2,theRest);\par
+\par
+// Destructure Arrays exemplo 3\par
+let meiaIds = [100,200,500,600,700];\par
+\par
+let meia1,meia2, oResto;\par
+\par
+[meia1,meia2, ...oResto] = meiaIds;\par
+\par
+console.log(meia1,meia2,oResto);\par
+\par
+//----------------------------------------------\par
+\par
+// Destructuring Objets\par
+\par
+let movel = \{\par
+    id: 100,\par
+    style : 'vitoriano'\par
+\};\par
+\par
+let \{id,style\} = movel;\par
+\par
+/* Em objetos:\par
+\par
+let id,style;\par
+ \{id,style\} = movel; \par
+\par
+iria devolver erro isto porque os curly braces s\'e3o usados\par
+para os code blocks\par
+\par
+Para contonar isto a solu\'e7\'e3o seria usar:\par
+\par
+(\{id,style\} = car);\par
+\par
+*/\par
+\par
+console.log(id,style);\par
+//----------------------------------------------\par
+\par
+// Spread Syntax , faz o "inverso" de Rest parameters\par
+\par
+function startCalcas(calca1,calca2,calca3, ...dResto)\{\par
+    console.log(calca1,calca2,calca3,dResto);\par
+\}\par
+\par
+let calcaCodes = 'abc';\par
+let calcaIds = [1,2,3,4,5,6];\par
+// let x = calcaIds;\par
+// let y = [...calcaIds];\par
+startCalcas(...calcaIds);\par
+\par
+// a b c\par
+// 1 2 3  resto\par
+// In javascript both string and arrays are iterables\par
+// -------------------------------------------------------------\par
+\par
+// typeof()\par
+/*\par
+typeof(1); number\par
+typeof(true); boolean\par
+typeof('helo'); string\par
+typeof( function()\{\}); function\par
+typeof(\{\}); object\par
+typeof(null); object\par
+typeof(NaN); number\par
+*/\par
+console.log("Utiliza\'e7\'e3o da fun\'e7\'e3o typeof(NaN) =" + typeof(NaN));\par
+//------------------------------------------------------------------\par
+\par
+// Common Type Conversions\par
+\par
+// convert to string\par
+let foo = 5 ;\par
+foo.toString();\par
+\par
+//string  to integer\par
+Number.parseInt('55');\par
+\par
+// string to number\par
+Number.parseFloat('55.99');\par
+\par
+console.log(typeof(Number.parseInt('55'))); // number\par
+console.log(Number.parseFloat('55.88ABC')); // 55.88  number\par
+console.log(Number.parseFloat('AAA55.88ABC'));  // NaN\par
+////////////////////////////////////////////////////////////\par
+\par
+// Controlling Loops  BREAK e Continue\par
+\par
+for (let index = 0; index < 4; index++) \{    \par
+    if (index === 2) \{\par
+        continue;\par
+        // break;  -> console ia so mostrar 2\par
+    \} \par
+    console.log(index); // 0 1 3\par
+\par
+\}\par
+\par
+/*Enquanto break assim que a condi\'e7\'e3o se verificasse , fazia o loop \par
+ para e fazia print\par
+\par
+    o\par
+\par
+continue ia fazer print de 0 1 3  , ou seja saltava o 2 assim que\par
+a condi\'e7\'e3o se verificasse \par
+\par
+*/\par
+//------------------------------------------------------------\par
+\par
+// Unary Operators\par
+\par
+let year = 2019;\par
+\par
+console.log(year++); // fez print 2019 e so depois incrementou\par
+console.log(year); // 2020 porque ja tinha incrementado\par
+\par
+console.log(++year); // 2021 porque incrementa lg e faz print dps\par
+// --------------------------------------------------------------\par
+\par
+// Logical Operators\par
+\par
+// && tem uma maior preced\'eancia ao ||\par
+\par
+// if ((var1>5 || var 2<100) && var >100))  Forma correta\par
+// isto se quiser que o || seja executado primeiro\par
+\par
+// em caso de if (var1>5 || var2<100 && var >100))\par
+// var2<100 && var >100 iria ser executado primeiro\par
+    \par
+//-----------------------------------------------------------------\par
+\par
+// Relational operator\par
+\par
+/*\par
+let s1 ='Zoo';\par
+let s2 ='tatatatata';\par
+\par
+if(s1 > s2 ) vai dar true \par
+\par
+isto porque a compara\'e7\'e3o entre strings vai ao ASCII e uppercase \'e9 superior\par
+\par
+para fazer uma compara\'e7\'e3o destas teria de passar ambas as string\par
+para .toUpperCase() primeiro\par
+\par
+*/\par
+\par
+//-----------------------------------------------------------------\par
+\par
+//Conditional operators\par
+\par
+console.log( (5>44) ? 'yes' : 'no'); // no\par
+console.log( (5<44) ? true : false); // true\par
+//-----------------------------------------------------------------\par
+\par
+// Assignment Operators\par
+\par
+let d1 =2 ;\par
+d1 += 10; // tambem funciona com todas as outras operacoes * / % \par
+\par
+d1 <<=1;  // basicamente multiplica o 12 por 2\par
+// na verdade o que isto faz \'e9 mudar os bits por tr\'e1s para a esquerda ou direita\par
+d1 >>=1; //  divide o 24 por 2\par
+console.log(d1); // 12  \par
+\par
+console.log(id,style);\par
+console.log(movel.id,movel.style);\par
+\par
+\par
+//------------------------------------------------------------------\par
+\par
+// Arrow Functions\par
+\par
+let getId = () => 'Arrow Function';\par
+console.log(getId()); // Arrow Function\par
+\par
+// arrow function 2\'ba exemplo\par
+let getTeste = (prefix,suffix) => prefix + 123 + suffix;\par
+console.log(getTeste('ID: ' , '!')); // ID: 123 !\par
+\par
+// arrow function mais complexa\par
+let getTT = (prefix,suffix) =>\{\par
+    return prefix + 123 + suffix;\par
+\};\par
+console.log(getTT('ID:','!'));\par
+\par
+//arrow function  com _ , significa que \'e9 uma variavel que pode\par
+// ou nao ser utilizada na funcao\par
+let getUnderscore = _ => 222;\par
+console.log(getUnderscore());\par
+//--------------------------------------------------\par
+\par
+// Formata\'e7\'e3o de strings sem utilizar o + \par
+let ttt = 15;\par
+let ttd = ':D'; \par
+console.log(`Isto \'e9 um teste $\{ttt\} $\{ttd\}.`);\par
+// -----------------------------------------------------\par
+\par
+///Default Parameters\par
+\par
+let trackCard = function (cardId , city='NY')\{\par
+    console.log(`Tracking $\{cardId\} in $\{city\}`);\par
+\};\par
+console.log(trackCard(123));  // tem como default parameter\par
+// a cidade NY\par
+console.log(trackCard(555,'Porto')); // podemos fazer\par
+// um override da cidade para outra se assim entendermos\par
+//--------------------------------------------------------\par
+\par
+// Constructor Functions , antigamente nao havia classes\par
+// de certa forma isto substituia as classes\par
+\par
+\par
+/////// USAR COM PROTOTYPES ///////\par
+\par
+function Pessoa(id)\{\par
+    this.pessoaId = id;\par
+    this.start = function()\{\par
+        console.log('start: ' + this.pessoaId);\par
+    \};\par
+\}\par
+let humano = new Pessoa(666);\par
+humano.start(); // output start: 666\par
+\par
+console.log(humano.pessoaId); // 666\par
+\par
+// Prototypes , evita que a fun\'e7\'e3o start de animal seja\par
+// criada cada vez que criarmos uma novo animal\par
+function Animal(id)\{\par
+    this.animalId = id;\par
+\}\par
+\par
+Animal.prototype.start = function() \{\par
+    console.log('Isto \'e9 um animal: ' + this.animalId);\par
+\};\par
+\par
+let animal = new Animal(111);\par
+animal.start(); /// 111\par
+\par
+// Expanding objects using prototypes\par
+\par
+String.prototype.moo = function()\{\par
+    return this.toString() + ' Moo';\par
+\};\par
+console.log('Im a cow' .moo());\par
+\par
+// tendo criado este prototype posso usa-lo a partir de agora\par
+// com qualquer string no meu programa\par
+\par
+//---------------------------------------------------------\par
+\par
+\par
+/// JSON -> transmitir objetos javascript over the wire\par
+\par
+let balde = \{\par
+    id :123,\par
+    cor: 'azul'\par
+\};\par
+\par
+let vassouras = [\par
+    \{\par
+        id : 1,\par
+        cor : 'verde'\par
+    \},\par
+\par
+    \{\par
+        id : 2,\par
+        cor : 'azul'\par
+    \},\par
+\par
+    \{\par
+        id : 3,\par
+        cor : 'verde'\par
+    \},\par
+\par
+    \{\par
+        id : 4,\par
+        cor : 'verde'\par
+    \}\par
+];\par
+// se eu quisesse enviar este objeto para algum sitio na web\par
+// fazia uma covners\'e3o com stringify\par
+console.log(JSON.stringify(balde));\par
+// output \{"id":123,"cor":"azul"\}\par
+console.log(JSON.stringify(vassouras));\par
+// [\{"id":111,"cor":"verde"\},\{"id":222,"cor":"azul"\}]\par
+\par
+ \par
+\par
+// Parsing JSON when reciving it from a stringified string\par
+\par
+let jsonIn = \par
+`\par
+ [\par
+     \{"tecladoId" : 111\},\par
+     \{"tecladoId" : 222\},\par
+     \{"tecladoID" : 444\}\par
+ ]\par
+`;\par
+\par
+let tecladoIds = JSON.parse(jsonIn);\par
+console.log(tecladoIds);\par
+\par
+/*\par
+Objetos devolvidos pelo parse para JSON:\par
+\par
+0: \{tecladoId: 111\}\par
+1: \{tecladoId: 222\}\par
+2: \{tecladoID: 444\}\par
+*/\par
+\par
+console.log(JSON.stringify(tecladoIds));\par
+/*\par
+Stringified novamente\par
+\par
+[\{"tecladoId":111\},\{"tecladoId":222\},\{"tecladoID":444\}]\par
+*/\par
+ //----------------------------------------------------\par
+\par
+ // Array iteration\par
+\par
+ vassouras.forEach(vassoura => console.log(vassoura));\par
+ vassouras.forEach(vassoura => console.log(vassoura.id));\par
+ vassouras.forEach((vassoura,index) => console.log(vassoura,index));\par
+\par
+\par
+ // Array filter\par
+// Podemos criar um novo array filtrado por uma\par
+// caracteristica que nos interesse\par
+\par
+let coresVassoura = vassouras.filter(\par
+   vassoura => vassoura.cor === 'verde'\par
+);\par
+console.log(coresVassoura);\par
+\par
+let resultVassoura = vassouras.every(\par
+    vassoura => vassoura.id > 0\par
+);\par
+console.log(resultVassoura); \par
+// esta \'e9 uma forma de verificar se todas as vassouras\par
+// t\'eam um id \par
+// se sim o result \'e9 TRUE\par
+// isto aplica a todo o array nao a cada elemento singular do array\par
+\par
+\par
+//Para procurar um elemento no array utilizamos o find\par
+// nota que apenas devolve um elemento\par
+// e  \'e9 o primeiro que encontra ap\'f3s a condi\'e7\'e3o se verificar\par
+let findVassoura = vassouras.find(\par
+    vassoura => vassoura.id >2\par
+);\par
+console.log(findVassoura);\par
+\par
+// Print de todas as vassouras\par
+vassouras.forEach (vassoura => console.log(vassoura));\par
+//------------------------------------------------------\par
+\par
+// Classes\par
+class Caneta\{\par
+    constructor(id,cor)\{\par
+        this.id = id ;\par
+        this.cor = cor;\par
+    \}\par
+    identify()\{\par
+        return `Caneta ID: $\{this.id\}`;\par
+    \}\par
+\}\par
+\par
+let caneta = new Caneta(1,'amarela');\par
+// para alterar propriedades enquanto executo codigo\par
+caneta.cor = 'preta';\par
+console.log(caneta.id,caneta.cor);\par
+console.log( caneta.identify() );\par
+\par
+/* outro exemplo de class , aqui permito utilizar um suffixo\par
+no metodo identify()\par
+*/\par
+class Borracha\{\par
+    constructor(id,cor)\{\par
+        this.id = id ;\par
+        this.cor = cor;\par
+    \}\par
+    identify(suffix)\{\par
+        return `Borracha ID: $\{this.id\}  $\{suffix\}`;\par
+    \}\par
+\}\par
+\par
+let borracha = new Borracha(1,'amarela');\par
+// para alterar propriedades enquanto executo codigo\par
+borracha.cor = 'preta';\par
+console.log(borracha.identify("!!!"));\par
+\par
+//-------------------------------------------------------\par
+\par
+// Heran\'e7a ver a pasta models\par
+// car.js e vehicle.js\par
+\par
+\par
+// Para import a class que criei no folder models\par
+// folder models contem tudo o que seja classe\par
+import \{Car\} from './models/car.js';\par
+\par
+\par
+let car = new Car(123);\par
+console.log(car.id);\par
+//---------------------------------------------------\par
+// BOM and DOM\par
+console.log(window.location);\par
+\par
+// Timers\par
+\par
+let timeoutId = setTimeout ( function() \{\par
+    console.log('1 second passed');\par
+\}, 1000);\par
+\par
+//if need to cancel\par
+clearTimeout(timeoutId);\par
+\par
+\par
+let intervalId = setInterval ( function() \{\par
+    console.log('1 second passed');\par
+\}, 1000);\par
+// to cancel\par
+clearInterval(intervalId);\par
+\par
+// ---------------------------------------------------\par
+\par
+// Promise\par
+\par
+let promise = new Promise(\par
+    function (resolve ,reject)\{\par
+        setTimeout(resolve ,100 , 'someValue');\par
+    \}\par
+);\par
+\par
+promise.then(\par
+    value => console.log('fulfilled: '+ value + '... this was a promise'),\par
+    error => console.log('rejected: ' + error + '... this was a promise')\par
+);\par
+\par
+// ---------------------------------------------------\par
+\par
+// jQuery and HTTP POST com promises\par
+\par
+/*\par
+    import $ from 'jquery';\par
+    \par
+    let user = \{\par
+        name : 'Mark Zamoyta',\par
+        avatar: 'mark.jpg' \par
+    \};\par
+\par
+    let promise = $.post(\par
+\par
+        "{{\field{\*\fldinst{HYPERLINK http://teste.bla.bla/api/v1/users }}{\fldrslt{http://teste.bla.bla/api/v1/users\ul0\cf0}}}}\f0\fs24 ",user\par
+    );\par
+     // sendo que user \'e9 a inf. quer quero dar post\par
+\par
+    promise.then(\par
+        data => console.log ('data: ',data),\par
+        error => console.log('error: ',error)\par
+    );\par
+*/\par
+//-------------------------------------------------------\par
+\par
+// IIFE'S\par
+/* uma IIFEE \'e9 uma fun\'e7\'e3o que \'e9 imediatamente invocada\par
+no acto da sua declara\'e7\'e3o\par
+\par
+para isso apenas temos de meter a fun\'e7\'e3o entre parentesis\par
+e (); imediatamente no fim\par
+\par
+( function()\{\}  )();\par
+\par
+*/\par
+\par
+//exemplo 1\par
+(function()\{\par
+    console.log('Isto \'e9 uma IIFE');\par
+\})();\par
+\par
+//exemplo 2\par
+/*  IIFE's can also hold on to variables \par
+    when we create a closure\par
+*/\par
+let iife = (function()\{\par
+    let dummyVar = 555;\par
+    console.log('IIFE em fun\'e7\'e3o');\par
+    return dummyVar;\par
+\})();\par
+\par
+console.log(iife);\par
+\par
+\par
+// IIFEE  com closures\par
+\par
+let ifeClosure = (function()\{\par
+    let valor = 111234;\par
+    let arrow = 'This is an arrow function';\par
+    \par
+    //not used\par
+    let getValor = function()\{\par
+        return valor;\par
+    \};\par
+    \par
+    //not used\par
+   let getValorArrow = () => arrow;\par
+\par
+   let getArrow2 = () =>\{\par
+    return arrow + ' with the value: ' + valor;\par
+\};\par
+   \par
+    return\{\par
+        getArrow2 : getArrow2\par
+    \};\par
+\})();\par
+console.log( ifeClosure.getArrow2() );\par
+\par
+//-------------------------------------------------------\par
+\par
+// this keyword\par
+\par
+// every function gets associated with the THIS object\par
+// the object is usually the object where the function\par
+// is defined , we say usually because functions can  be\par
+// moved arround from object to object and haver\par
+// different context's\par
+let fn = function()\{\par
+    console.log (this === window);\par
+\};\par
+fn(); // will return true or false\par
+\par
+let passaro =\{\par
+    pId : 99999,\par
+    getPID: function(prefix)\{\par
+        return prefix + this.pId; // it refers to the Id of THIS \par
+        // object(passaro) that holds the function getPID\par
+    \}\par
+\};\par
+console.log(passaro.getPID());\par
+\par
+// Call and Apply\par
+\par
+// call para esta call funcionar remover o prefix em passaro\par
+let exampleCall = \{ pId : 89988 \};\par
+console.log( passaro.getPID.call(exampleCall) );\par
+\par
+//apply a diferen\'e7a \'e9 que apply aceita um array de arguments\par
+console.log( passaro.getPID.apply(exampleCall, ['ID: ']) );\par
+//---------------------------------------------------------\par
+\par
+// Bind\par
+\par
+let d = \{\par
+    dID : 123,\par
+    getDID: function()\{\par
+        return this.dID;\par
+    \}\par
+\};\par
+\par
+// New object\par
+let newD = \{\par
+     dID :222\par
+\};\par
+\par
+// aplying the function from d to our new object newD\par
+\par
+// in reality we are copying an existing function\par
+// in this case from d \par
+let newFn = d.getDID.bind(newD);\par
+\par
+\par
+// outputs\par
+console.log(newFn());\par
+console.log("The original d maintains its dID " + d.dID);\par
+console.log("Bind uses getDID from d to apply it to the newD " + newD.dID);\par
+// -----------------------------------------------------\par
+\par
+// Preventing auto submit \par
+/*\par
+let form = document.getElementById('user-form');\par
+\par
+form.addEventListener('submit', event => \{\par
+\par
+    /to acess the form values\par
+    let user = form.elements['user'];\par
+    let avatarFile = form.elements['avatar-file'];\par
+\par
+    console.log(user.value , avatarFile.value);\par
+\par
+    //preventing auto submit\par
+    event.preventDefault();\par
+\});\par
+*/\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 

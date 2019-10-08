@@ -1,0 +1,615 @@
+
+// Rest Parameters
+function sendCars(day, ...carIds){
+    carIds.forEach(id => console.log(id) );
+}
+
+sendCars('Monday',1,2,3);
+// -------------------------------------------
+
+// Destructure Arrays exemplo 1
+let roupaIds = [1,2,5];
+
+let roupa1,remainingRoupas;
+
+[, ...remainingRoupas] = roupaIds;
+
+console.log(roupa1,remainingRoupas);
+
+// Destructure Arrays exemplo 2  ( exemplos 2 e 3 são mt semelhantes)
+let casacoIds = [100,200,500,600,700];
+
+let [casaco1,casaco2, ...theRest] = casacoIds;
+
+console.log(casaco1,casaco2,theRest);
+
+// Destructure Arrays exemplo 3
+let meiaIds = [100,200,500,600,700];
+
+let meia1,meia2, oResto;
+
+[meia1,meia2, ...oResto] = meiaIds;
+
+console.log(meia1,meia2,oResto);
+
+//----------------------------------------------
+
+// Destructuring Objets
+
+let movel = {
+    id: 100,
+    style : 'vitoriano'
+};
+
+let {id,style} = movel;
+
+/* Em objetos:
+
+let id,style;
+ {id,style} = movel; 
+
+iria devolver erro isto porque os curly braces são usados
+para os code blocks
+
+Para contonar isto a solução seria usar:
+
+({id,style} = car);
+
+*/
+
+console.log(id,style);
+//----------------------------------------------
+
+// Spread Syntax , faz o "inverso" de Rest parameters
+
+function startCalcas(calca1,calca2,calca3, ...dResto){
+    console.log(calca1,calca2,calca3,dResto);
+}
+
+let calcaCodes = 'abc';
+let calcaIds = [1,2,3,4,5,6];
+// let x = calcaIds;
+// let y = [...calcaIds];
+startCalcas(...calcaIds);
+
+// a b c
+// 1 2 3  resto
+// In javascript both string and arrays are iterables
+// -------------------------------------------------------------
+
+// typeof()
+/*
+typeof(1); number
+typeof(true); boolean
+typeof('helo'); string
+typeof( function(){}); function
+typeof({}); object
+typeof(null); object
+typeof(NaN); number
+*/
+console.log("Utilização da função typeof(NaN) =" + typeof(NaN));
+//------------------------------------------------------------------
+
+// Common Type Conversions
+
+// convert to string
+let foo = 5 ;
+foo.toString();
+
+//string  to integer
+Number.parseInt('55');
+
+// string to number
+Number.parseFloat('55.99');
+
+console.log(typeof(Number.parseInt('55'))); // number
+console.log(Number.parseFloat('55.88ABC')); // 55.88  number
+console.log(Number.parseFloat('AAA55.88ABC'));  // NaN
+////////////////////////////////////////////////////////////
+
+// Controlling Loops  BREAK e Continue
+
+for (let index = 0; index < 4; index++) {    
+    if (index === 2) {
+        continue;
+        // break;  -> console ia so mostrar 2
+    } 
+    console.log(index); // 0 1 3
+
+}
+
+/*Enquanto break assim que a condição se verificasse , fazia o loop 
+ para e fazia print
+
+    o
+
+continue ia fazer print de 0 1 3  , ou seja saltava o 2 assim que
+a condição se verificasse 
+
+*/
+//------------------------------------------------------------
+
+// Unary Operators
+
+let year = 2019;
+
+console.log(year++); // fez print 2019 e so depois incrementou
+console.log(year); // 2020 porque ja tinha incrementado
+
+console.log(++year); // 2021 porque incrementa lg e faz print dps
+// --------------------------------------------------------------
+
+// Logical Operators
+
+// && tem uma maior precedência ao ||
+
+// if ((var1>5 || var 2<100) && var >100))  Forma correta
+// isto se quiser que o || seja executado primeiro
+
+// em caso de if (var1>5 || var2<100 && var >100))
+// var2<100 && var >100 iria ser executado primeiro
+    
+//-----------------------------------------------------------------
+
+// Relational operator
+
+/*
+let s1 ='Zoo';
+let s2 ='tatatatata';
+
+if(s1 > s2 ) vai dar true 
+
+isto porque a comparação entre strings vai ao ASCII e uppercase é superior
+
+para fazer uma comparação destas teria de passar ambas as string
+para .toUpperCase() primeiro
+
+*/
+
+//-----------------------------------------------------------------
+
+//Conditional operators
+
+console.log( (5>44) ? 'yes' : 'no'); // no
+console.log( (5<44) ? true : false); // true
+//-----------------------------------------------------------------
+
+// Assignment Operators
+
+let d1 =2 ;
+d1 += 10; // tambem funciona com todas as outras operacoes * / % 
+
+d1 <<=1;  // basicamente multiplica o 12 por 2
+// na verdade o que isto faz é mudar os bits por trás para a esquerda ou direita
+d1 >>=1; //  divide o 24 por 2
+console.log(d1); // 12  
+
+console.log(id,style);
+console.log(movel.id,movel.style);
+
+
+//------------------------------------------------------------------
+
+// Arrow Functions
+
+let getId = () => 'Arrow Function';
+console.log(getId()); // Arrow Function
+
+// arrow function 2º exemplo
+let getTeste = (prefix,suffix) => prefix + 123 + suffix;
+console.log(getTeste('ID: ' , '!')); // ID: 123 !
+
+// arrow function mais complexa
+let getTT = (prefix,suffix) =>{
+    return prefix + 123 + suffix;
+};
+console.log(getTT('ID:','!'));
+
+//arrow function  com _ , significa que é uma variavel que pode
+// ou nao ser utilizada na funcao
+let getUnderscore = _ => 222;
+console.log(getUnderscore());
+//--------------------------------------------------
+
+// Formatação de strings sem utilizar o + 
+let ttt = 15;
+let ttd = ':D'; 
+console.log(`Isto é um teste ${ttt} ${ttd}.`);
+// -----------------------------------------------------
+
+///Default Parameters
+
+let trackCard = function (cardId , city='NY'){
+    console.log(`Tracking ${cardId} in ${city}`);
+};
+console.log(trackCard(123));  // tem como default parameter
+// a cidade NY
+console.log(trackCard(555,'Porto')); // podemos fazer
+// um override da cidade para outra se assim entendermos
+//--------------------------------------------------------
+
+// Constructor Functions , antigamente nao havia classes
+// de certa forma isto substituia as classes
+
+
+/////// USAR COM PROTOTYPES ///////
+
+function Pessoa(id){
+    this.pessoaId = id;
+    this.start = function(){
+        console.log('start: ' + this.pessoaId);
+    };
+}
+let humano = new Pessoa(666);
+humano.start(); // output start: 666
+
+console.log(humano.pessoaId); // 666
+
+// Prototypes , evita que a função start de animal seja
+// criada cada vez que criarmos uma novo animal
+function Animal(id){
+    this.animalId = id;
+}
+
+Animal.prototype.start = function() {
+    console.log('Isto é um animal: ' + this.animalId);
+};
+
+let animal = new Animal(111);
+animal.start(); /// 111
+
+// Expanding objects using prototypes
+
+String.prototype.moo = function(){
+    return this.toString() + ' Moo';
+};
+console.log('Im a cow' .moo());
+
+// tendo criado este prototype posso usa-lo a partir de agora
+// com qualquer string no meu programa
+
+//---------------------------------------------------------
+
+
+/// JSON -> transmitir objetos javascript over the wire
+
+let balde = {
+    id :123,
+    cor: 'azul'
+};
+
+let vassouras = [
+    {
+        id : 1,
+        cor : 'verde'
+    },
+
+    {
+        id : 2,
+        cor : 'azul'
+    },
+
+    {
+        id : 3,
+        cor : 'verde'
+    },
+
+    {
+        id : 4,
+        cor : 'verde'
+    }
+];
+// se eu quisesse enviar este objeto para algum sitio na web
+// fazia uma covnersão com stringify
+console.log(JSON.stringify(balde));
+// output {"id":123,"cor":"azul"}
+console.log(JSON.stringify(vassouras));
+// [{"id":111,"cor":"verde"},{"id":222,"cor":"azul"}]
+
+ 
+
+// Parsing JSON when reciving it from a stringified string
+
+let jsonIn = 
+`
+ [
+     {"tecladoId" : 111},
+     {"tecladoId" : 222},
+     {"tecladoID" : 444}
+ ]
+`;
+
+let tecladoIds = JSON.parse(jsonIn);
+console.log(tecladoIds);
+
+/*
+Objetos devolvidos pelo parse para JSON:
+
+0: {tecladoId: 111}
+1: {tecladoId: 222}
+2: {tecladoID: 444}
+*/
+
+console.log(JSON.stringify(tecladoIds));
+/*
+Stringified novamente
+
+[{"tecladoId":111},{"tecladoId":222},{"tecladoID":444}]
+*/
+ //----------------------------------------------------
+
+ // Array iteration
+
+ vassouras.forEach(vassoura => console.log(vassoura));
+ vassouras.forEach(vassoura => console.log(vassoura.id));
+ vassouras.forEach((vassoura,index) => console.log(vassoura,index));
+
+
+ // Array filter
+// Podemos criar um novo array filtrado por uma
+// caracteristica que nos interesse
+
+let coresVassoura = vassouras.filter(
+   vassoura => vassoura.cor === 'verde'
+);
+console.log(coresVassoura);
+
+let resultVassoura = vassouras.every(
+    vassoura => vassoura.id > 0
+);
+console.log(resultVassoura); 
+// esta é uma forma de verificar se todas as vassouras
+// têm um id 
+// se sim o result é TRUE
+// isto aplica a todo o array nao a cada elemento singular do array
+
+
+//Para procurar um elemento no array utilizamos o find
+// nota que apenas devolve um elemento
+// e  é o primeiro que encontra após a condição se verificar
+let findVassoura = vassouras.find(
+    vassoura => vassoura.id >2
+);
+console.log(findVassoura);
+
+// Print de todas as vassouras
+vassouras.forEach (vassoura => console.log(vassoura));
+//------------------------------------------------------
+
+// Classes
+class Caneta{
+    constructor(id,cor){
+        this.id = id ;
+        this.cor = cor;
+    }
+    identify(){
+        return `Caneta ID: ${this.id}`;
+    }
+}
+
+let caneta = new Caneta(1,'amarela');
+// para alterar propriedades enquanto executo codigo
+caneta.cor = 'preta';
+console.log(caneta.id,caneta.cor);
+console.log( caneta.identify() );
+
+/* outro exemplo de class , aqui permito utilizar um suffixo
+no metodo identify()
+*/
+class Borracha{
+    constructor(id,cor){
+        this.id = id ;
+        this.cor = cor;
+    }
+    identify(suffix){
+        return `Borracha ID: ${this.id}  ${suffix}`;
+    }
+}
+
+let borracha = new Borracha(1,'amarela');
+// para alterar propriedades enquanto executo codigo
+borracha.cor = 'preta';
+console.log(borracha.identify("!!!"));
+
+//-------------------------------------------------------
+
+// Herança ver a pasta models
+// car.js e vehicle.js
+
+
+// Para import a class que criei no folder models
+// folder models contem tudo o que seja classe
+import {Car} from './models/car.js';
+
+
+let car = new Car(123);
+console.log(car.id);
+//---------------------------------------------------
+// BOM and DOM
+console.log(window.location);
+
+// Timers
+
+let timeoutId = setTimeout ( function() {
+    console.log('1 second passed');
+}, 1000);
+
+//if need to cancel
+clearTimeout(timeoutId);
+
+
+let intervalId = setInterval ( function() {
+    console.log('1 second passed');
+}, 1000);
+// to cancel
+clearInterval(intervalId);
+
+// ---------------------------------------------------
+
+// Promise
+
+let promise = new Promise(
+    function (resolve ,reject){
+        setTimeout(resolve ,100 , 'someValue');
+    }
+);
+
+promise.then(
+    value => console.log('fulfilled: '+ value + '... this was a promise'),
+    error => console.log('rejected: ' + error + '... this was a promise')
+);
+
+// ---------------------------------------------------
+
+// jQuery and HTTP POST com promises
+
+/*
+    import $ from 'jquery';
+    
+    let user = {
+        name : 'Mark Zamoyta',
+        avatar: 'mark.jpg' 
+    };
+
+    let promise = $.post(
+
+        "http://teste.bla.bla/api/v1/users",user
+    );
+     // sendo que user é a inf. quer quero dar post
+
+    promise.then(
+        data => console.log ('data: ',data),
+        error => console.log('error: ',error)
+    );
+*/
+//-------------------------------------------------------
+
+// IIFE'S
+/* uma IIFEE é uma função que é imediatamente invocada
+no acto da sua declaração
+
+para isso apenas temos de meter a função entre parentesis
+e (); imediatamente no fim
+
+( function(){}  )();
+
+*/
+
+//exemplo 1
+(function(){
+    console.log('Isto é uma IIFE');
+})();
+
+//exemplo 2
+/*  IIFE's can also hold on to variables 
+    when we create a closure
+*/
+let iife = (function(){
+    let dummyVar = 555;
+    console.log('IIFE em função');
+    return dummyVar;
+})();
+
+console.log(iife);
+
+
+// IIFEE  com closures
+
+let ifeClosure = (function(){
+    let valor = 111234;
+    let arrow = 'This is an arrow function';
+    
+    //not used
+    let getValor = function(){
+        return valor;
+    };
+    
+    //not used
+   let getValorArrow = () => arrow;
+
+   let getArrow2 = () =>{
+    return arrow + ' with the value: ' + valor;
+};
+   
+    return{
+        getArrow2 : getArrow2
+    };
+})();
+console.log( ifeClosure.getArrow2() );
+
+//-------------------------------------------------------
+
+// this keyword
+
+// every function gets associated with the THIS object
+// the object is usually the object where the function
+// is defined , we say usually because functions can  be
+// moved arround from object to object and haver
+// different context's
+let fn = function(){
+    console.log (this === window);
+};
+fn(); // will return true or false
+
+let passaro ={
+    pId : 99999,
+    getPID: function(prefix){
+        return prefix + this.pId; // it refers to the Id of THIS 
+        // object(passaro) that holds the function getPID
+    }
+};
+console.log(passaro.getPID());
+
+// Call and Apply
+
+// call para esta call funcionar remover o prefix em passaro
+let exampleCall = { pId : 89988 };
+console.log( passaro.getPID.call(exampleCall) );
+
+//apply a diferença é que apply aceita um array de arguments
+console.log( passaro.getPID.apply(exampleCall, ['ID: ']) );
+//---------------------------------------------------------
+
+// Bind
+
+let d = {
+    dID : 123,
+    getDID: function(){
+        return this.dID;
+    }
+};
+
+// New object
+let newD = {
+     dID :222
+};
+
+// aplying the function from d to our new object newD
+
+// in reality we are copying an existing function
+// in this case from d 
+let newFn = d.getDID.bind(newD);
+
+
+// outputs
+console.log(newFn());
+console.log("The original d maintains its dID " + d.dID);
+console.log("Bind uses getDID from d to apply it to the newD " + newD.dID);
+// -----------------------------------------------------
+
+// Preventing auto submit 
+/*
+let form = document.getElementById('user-form');
+
+form.addEventListener('submit', event => {
+
+    /to acess the form values
+    let user = form.elements['user'];
+    let avatarFile = form.elements['avatar-file'];
+
+    console.log(user.value , avatarFile.value);
+
+    //preventing auto submit
+    event.preventDefault();
+});
+*/
